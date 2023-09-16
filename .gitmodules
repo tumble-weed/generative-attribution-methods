@@ -1,0 +1,3 @@
+[submodule "generative_inpainting_pytorch"]
+	path = generative_inpainting_pytorch
+	url = https://github.com/tumble-weed/generative-inpainting-pytorch
