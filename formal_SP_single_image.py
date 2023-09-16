@@ -10,7 +10,7 @@ from formal_utils import *
 from skimage.util import view_as_windows
 from skimage.transform import resize
 from torch.utils.data import Dataset
-
+import dutils
 
 use_cuda = torch.cuda.is_available()
 
@@ -62,7 +62,9 @@ class occlusion_analysis:
                         cv2.cvtColor(temp_img, cv2.COLOR_BGR2RGB))
 
             elif heatmap_type == 'SPG':
+                # import ipdb;ipdb.set_trace()
                 inpaint_img, _ = impant_model.generate_background(self.image, data, batch_process=True)
+                import ipdb;ipdb.set_trace()
                 inpaint_img = self.image * data + inpaint_img * (1 - data)
                 softmax_out = torch.nn.Softmax(dim=1)(self.model(inpaint_img))
                 delta = eval0 - softmax_out.data[:, neuron]
@@ -179,10 +181,11 @@ if __name__ == '__main__':
     if args.algo == 'SPG':
 
         # Tensorflow CA-inpainter from FIDO
-        sys.path.insert(0, './generative_inpainting/')
+        sys.path.insert(0, './generative_inpainting_pytorch/')
         from CAInpainter import CAInpainter
 
         impant_model = CAInpainter(batch_size, checkpoint_dir=args.weight_file)
+        impant_model.to('cuda')
 
     init_time = time.time()
 
