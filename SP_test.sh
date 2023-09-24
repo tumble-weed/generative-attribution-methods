@@ -12,6 +12,10 @@ algo_1='SP'
 patch_size=41
 stride=3
 
+#####
+# CUDA_VISIBLE_DEVICES=0 python formal_SP_single_image.py --img_path example_2.JPEG --true_class 565 --dataset imagenet --weight_file ./generative_inpainting/model_logs/release_imagenet_256/ --save_path ./output/ --algo SPG --patch_size 41 --stride 3
+#####
+
 # SP
 CUDA_VISIBLE_DEVICES=0 python formal_SP_single_image.py --img_path ${img_path} --true_class ${true_class} --dataset ${dataset} --weight_file ${weight_file} --save_path ${save_path} --algo ${algo_1} --patch_size ${patch_size} --stride ${stride}
 
