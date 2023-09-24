@@ -1,0 +1,3 @@
+CUDA_VISIBLE_DEVICES=0 python formal_SP_single_image.py --img_path example_2.JPEG --true_class 565 --dataset imagenet --weight_file ./generative_inpainting/model_logs/release_imagenet_256/ --save_path ./output/ --algo SPG --patch_size 41 --stride 3
+
+CUDA_VISIBLE_DEVICES=0 python formal_SP_single_image.py --img_path example.JPEG --true_class 222 --dataset imagenet --weight_file ./generative_inpainting/model_logs/release_imagenet_256/ --save_path ./output/ --algo SPG --patch_size 41 --stride 3
