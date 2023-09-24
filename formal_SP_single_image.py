@@ -182,7 +182,7 @@ if __name__ == '__main__':
 
         # Tensorflow CA-inpainter from FIDO
         sys.path.insert(0, './generative_inpainting_pytorch/')
-        from CAInpainter import CAInpainter
+        from CAInpainter2 import CAInpainter
 
         impant_model = CAInpainter(batch_size, checkpoint_dir=args.weight_file)
         impant_model.to('cuda')
